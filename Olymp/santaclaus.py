@@ -44,6 +44,7 @@ def get13s(startYear, stopYear):             #число 13
 
 
 def IsFriday(dayNum):
+#порядковый номер дня 1 - 1 янв 1920, 2 - 2 янв 1920 и т.д.
     return (dayNum-2)%7==0
 
 # k=int(input())
@@ -52,15 +53,20 @@ def IsFriday(dayNum):
 #     a,b=map(int,input().split())
 #     days+=freeFridays(a,b)
 # print(days)
+def pretty_print(lst):
+    for i in range(len(lst)//12):
+      print(lst[i*12:i*12+12])
 
-print(get13s(1920, 2002))
+
 #print(firstFriday(2021))
-
-
-_13s=get13s(1999,2000)
-freeFridayCount=0
-for el in _13s:
-    if IsFriday(el):
-        freeFridayCount+=1
+a=int(input())
+freeFridayCount = 0
+for i in range(a):
+    a,b=map(int,input().split())
+    _13s = get13s(a,b)
+    for el in _13s:
+        if IsFriday(el):
+            freeFridayCount += 1
 print(freeFridayCount)
+
 
