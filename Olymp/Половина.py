@@ -9,7 +9,7 @@ for i in range(n):
             line.append(0)
         else:
             line.append(1)
-    mart.append(line)
+    mart.extend(line)
 
 for el in mart:
     for i in el:
