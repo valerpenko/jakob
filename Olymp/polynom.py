@@ -27,12 +27,22 @@ def string_to_list(s):
             l[i]=l[i]+"^1"
         if l[i].find("x")==-1:
             l[i] = l[i] + "*x^0"
+    for i in range(len(l)):
+        if int(l[i][-1])-int(l[i+1][-1])==1:
+            continue
+        else:
+            l.insert(i+1,"+0*x^"+str(int(l[i][-1])-1))
+
     #преобрвзовываем ствроки одночлены в список коэфицентов
+    lfull=[]
+    for el in l:
+
     k=s.find("^")
     pow=s[k:]
     pow=int(pow)
     list=[l]
     return l
+
 def calculate(poly,x):
     sum=0
     poly=poly[::-1]
