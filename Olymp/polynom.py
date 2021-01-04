@@ -32,10 +32,6 @@ def string_to_list(s):
     pow=s[k:]
     pow=int(pow)
     list=[l]
-
-
-
-
     return l
 def calculate(poly,x):
     sum=0
