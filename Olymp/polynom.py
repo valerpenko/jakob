@@ -27,7 +27,7 @@ def string_to_list(s):
             l[i]=l[i]+"^1"
         if l[i].find("x")==-1:
             l[i] = l[i] + "*x^0"
-    for i in range(len(l)):
+    for i in range(len(l)-1):
         if int(l[i][-1])-int(l[i+1][-1])==1:
             continue
         else:
@@ -35,12 +35,8 @@ def string_to_list(s):
 
     #преобрвзовываем ствроки одночлены в список коэфицентов
     lfull=[]
-    for el in l:
-
-    k=s.find("^")
-    pow=s[k:]
-    pow=int(pow)
-    list=[l]
+    for i in range(len(l)):
+        l[i]=int(l[i][:l[i].find("*")])
     return l
 
 def calculate(poly,x):
@@ -49,8 +45,9 @@ def calculate(poly,x):
     for i in range(len(poly)):
         sum+=poly[i]*x**i
     return sum
-s="8*x^4-5*x^2+7*x-6"
 
-print(string_to_list(s))
+l=input()
+x=int(input())
 
+print(calculate(string_to_list(l),x))
 
