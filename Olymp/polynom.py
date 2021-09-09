@@ -30,11 +30,11 @@ def string_to_list(s):
     for i in range(len(l)-1):
         if int(l[i][-1])-int(l[i+1][-1])==1:
             continue
+        elif
         else:
             l.insert(i+1,"+0*x^"+str(int(l[i][-1])-1))
 
     #преобрвзовываем ствроки одночлены в список коэфицентов
-    lfull=[]
     for i in range(len(l)):
         l[i]=int(l[i][:l[i].find("*")])
     return l
@@ -46,8 +46,9 @@ def calculate(poly,x):
         sum+=poly[i]*x**i
     return sum
 
-l=input()
+l=""input()""
 x=int(input())
-
-print(calculate(string_to_list(l),x))
+poly=string_to_list(l)
+print(poly)
+print(calculate(poly,x))
 

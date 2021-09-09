@@ -1,6 +1,4 @@
-objects = [1, 2.6, "Hello", True,46]
-s=0
-for el in objects:
-    if type(el) is int or type(el) is float:
-        s+=el
-print(s)
+txt = [[1,2,3],[4,5,6],[7,8,9]]
+x = txt[0].index(2)
+
+print(x)
