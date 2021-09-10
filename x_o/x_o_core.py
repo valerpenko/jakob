@@ -30,35 +30,35 @@ def next_input():
     except ValueError:
         pass
 
-def game_status():
+def game_status(row, col):
     global board
-    global row
-    global col
     global move_count
     global turn_x
     player=X if turn_x else O
     winer=WIN_X if turn_x else WIN_O
-    try:
+
     # проверям вертикаль
-        if board[row-2][col]==board[row-1][col]==board[row][col]:
+    try:
+        if board[row-2][col]==board[row-1][col] and board[row-1][col]==board[row][col]:
             return winer
-        if board[row-1][col]==board[row][col]==board[row+1][col]:
+        if board[row-1][col]==board[row][col] and board[row][col]==board[row+1][col]:
             return winer
-        if board[row][col]==board[row+1][col]==board[row+2][col]:
+        if board[row][col]==board[row+1][col] and board[row+1][col]==board[row+2][col]:
             return winer
+    except(IndexError):
+        ...
 
     # проверям столбцы
-        for i in range(0,3):
-            if board[i][0]==board[i][1]==board[i][2]==player:
-                return winer
-    # проверям ДИАГОНАЛИ
-        if board[0][0]==board[1][1]==board[2][2]==player or board[0][2]==board[1][1]==board[2][0]==player:
+    for i in range(0,3):
+        if board[i][0]==board[i][1]==board[i][2]==player:
             return winer
+    # проверям ДИАГОНАЛИ
+    if board[0][0]==board[1][1]==board[2][2]==player or board[0][2]==board[1][1]==board[2][0]==player:
+        return winer
 
-
-        if move_count==100:
-            return DRAW
-        if move_count==0:
-            return CONTINUE
-        turn_x = not turn_x
+    if move_count==100:
+        return DRAW
+    if move_count==0:
         return CONTINUE
+    turn_x = not turn_x
+    return CONTINUE

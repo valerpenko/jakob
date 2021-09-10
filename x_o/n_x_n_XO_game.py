@@ -22,8 +22,10 @@ def show_board():
 n=int(input("укажите размер игровогополя: "))
 init(n)
 show_board()
-
-while game_status()==CONTINUE:
+row, col = next_input()
+game_step(row, col)
+show_board()
+while game_status(row,col)==CONTINUE:
     try:
         row, col = next_input()
         game_step(row, col)
@@ -35,9 +37,9 @@ while game_status()==CONTINUE:
         print("неверные координаты")
     show_board()
 
-if game_status()==WIN_X:
+if game_status(row,col)==WIN_X:
     print("ПОБЕДА КРЕСТИКОВ")
-elif game_status()==WIN_O:
+elif game_status(row,col)==WIN_O:
     print("ПОБЕДА НОЛИКОВ")
-elif game_status()==DRAW:
+elif game_status(row,col)==DRAW:
     print("НИЧЬЯ")
