@@ -1,5 +1,5 @@
 from x_o_core import *
-
+#rgfd
 def next_input():
     try:
         row, col = map(int, input("r,c:").split())
